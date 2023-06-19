@@ -1,0 +1,11 @@
+FROM kvm-vnc:zdh
+
+# Install git, supervisor, VNC, & X11 packages
+RUN apt-get install -y wget \
+    && apt-get install -y vim
+
+RUN sed -i '701,705d' /usr/lib/jvm/java-11-openjdk-amd64/jre/lib/security/java.security
+
+COPY . /app
+CMD ["/app/entrypoint.sh"]
+EXPOSE 8080

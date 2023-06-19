@@ -1,4 +1,4 @@
 FROM ubuntu:focal
 
 # Install git, supervisor, VNC, & X11 packages
-RUN sudo apt-get update && apt-get install -y icedtea-netx
+RUN apt-get update && apt-get install -y icedtea-netx
