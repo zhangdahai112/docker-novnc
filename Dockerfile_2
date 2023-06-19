@@ -1,4 +1,8 @@
 FROM debian:bullseye
 
 # Install git, supervisor, VNC, & X11 packages
-RUN apt-get install -y icedtea-netx
+RUN echo \
+deb https://mirror.nju.edu.cn/debian/ bullseye main contrib non-free > /etc/apt/sources.list && \
+echo deb https://mirror.nju.edu.cn/debian-security/ bullseye-security main contrib non-free >> /etc/apt/sources.list && \
+echo deb https://mirror.nju.edu.cn/debian bullseye-updates main contrib non-free >> /etc/apt/sources.list && \
+apt-get update
