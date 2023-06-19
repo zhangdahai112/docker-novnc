@@ -1,8 +1,6 @@
 #!/bin/bash
 
-VENDOR=${VENDOR}
-
-if [ -z $VENDOR ];then
+if [ -z "$VENDOR" ];then
   # shellcheck disable=SC1073
   echo "NO VENDOR Provided"
   echo "Possible Vendor is :"
@@ -27,8 +25,9 @@ else
   exit 1
 fi
 
-/bin/bash $pwd/$dir/startup.sh
+/bin/bash /app/webkvm/scripts/$dir/startup.sh
 
+javaws -Xclearcache
 if [ ! -f /app/jviewer.jnlp ];then
   echo "Failed to get jviewer.jnlp please add QQ:631871336 for support"
   exit 1

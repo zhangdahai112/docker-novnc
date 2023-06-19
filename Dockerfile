@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM kvm:base
 
 # Install git, supervisor, VNC, & X11 packages
 RUN set -ex; \
@@ -16,6 +16,8 @@ RUN set -ex; \
       icedtea-plugin \
       ipmitool \
       curl \
+      wget \
+      vim \
       nodejs
 
 # Setup demo environment variables
@@ -28,7 +30,6 @@ ENV HOME=/root \
     DISPLAY_WIDTH=1024 \
     DISPLAY_HEIGHT=768
 
-RUN sed -i '701,705d' /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/java.security
 COPY . /app
 CMD ["/app/entrypoint.sh"]
 EXPOSE 8080
