@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM debian:focal
 
 # Install git, supervisor, VNC, & X11 packages
 RUN echo \
